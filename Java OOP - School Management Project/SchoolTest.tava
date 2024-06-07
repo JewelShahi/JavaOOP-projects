@@ -1,0 +1,42 @@
+import java.util.*;
+import java.io.*;
+
+class SchoolTest {
+    public void addObjectsToSchool(School school) {
+        Teacher teacherGeorgiev = new Teacher("Димитър", "Георгиев");
+        Teacher teacherNikolova = new Teacher("Христина", "Николова");
+
+        school.addTeacher(teacherGeorgiev);
+        school.addTeacher(teacherNikolova);
+
+        // Add the English group
+        Group groupEnglish = new Group("английски език");
+        groupEnglish.addStudent(new Student("Иван", "Петров"));
+        groupEnglish.addStudent(new Student("Васил", "Тодоров"));
+        groupEnglish.addStudent(new Student("Елена", "Михайлова"));
+        groupEnglish.addStudent(new Student("Радослав", "Георгиев"));
+        groupEnglish.addStudent(new Student("Милена", "Стефанова"));
+        groupEnglish.addStudent(new Student("Иван", "Петров"));
+
+        school.addGroup(groupEnglish);
+        teacherNikolova.addGroup(groupEnglish);
+
+        // Add the French group
+        Group groupFrench = new Group("френски език");
+        groupFrench.addStudent(new Student("Петър", "Петров"));
+        groupFrench.addStudent(new Student("Васил", "Василев"));
+
+        school.addGroup(groupFrench);
+        teacherNikolova.addGroup(groupFrench);
+        // Add the Informatics group
+        Group grouplnformatics = new Group("информатика");
+        grouplnformatics.addStudent(new Student("Милка", "Колева"));
+        grouplnformatics.addStudent(new Student("Пенчо", "Тошев"));
+        grouplnformatics.addStudent(new Student("Ива", "Борисова"));
+        grouplnformatics.addStudent(new Student("Милена", "Иванова"));
+        grouplnformatics.addStudent(new Student("Христо", "Тодоров"));
+
+        school.addGroup(grouplnformatics);
+        teacherGeorgiev.addGroup(grouplnformatics);
+    }
+}
