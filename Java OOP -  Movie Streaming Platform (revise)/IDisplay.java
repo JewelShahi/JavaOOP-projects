@@ -1,4 +1,4 @@
 @FunctionalInterface
-interface Display {
+interface IDisplay {
 	public void displayMovie(Movie[] movies);
 }
