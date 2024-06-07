@@ -1,4 +1,4 @@
 @FunctionalInterface
-interface Rate {
+interface IRate {
 	void rate(Movie movie, double rating);
 }
