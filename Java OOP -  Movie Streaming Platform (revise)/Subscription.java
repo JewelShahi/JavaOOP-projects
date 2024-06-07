@@ -1,4 +1,4 @@
 @FunctionalInterface
-interface Subscription {
+interface ISubscription {
 	void manageSubscription(boolean status);
 }
