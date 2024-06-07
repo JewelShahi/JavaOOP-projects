@@ -1,4 +1,4 @@
 @FunctionalInterface
-interface FilterMovie<T, D> {
+interface IFilterMovie<T, D> {
 	public void filter(T t, D d);
 }
