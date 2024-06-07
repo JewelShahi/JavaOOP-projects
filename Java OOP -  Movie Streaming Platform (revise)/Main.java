@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    public static Display displayMovies = (Movie[] mov) -> Arrays
+    public static IDisplay displayMovies = (Movie[] mov) -> Arrays
             .stream(mov)
             .forEach(
                     m -> System.out.println(m.getMovieDetails()));
 
-    public static FilterMovie<Movie[], String> filterByTitle = (Movie[] movies, String title) -> Arrays
+    public static IFilterMovie<Movie[], String> filterByTitle = (Movie[] movies, String title) -> Arrays
             .stream(movies)
             .filter(m -> m.getTitle().equalsIgnoreCase(title))
             .forEach(m -> System.out.println(m.getMovieDetails()));
 
-    public static FilterMovie<Movie[], Boolean> filterByAvailability = (Movie[] movies, Boolean isAvailable) -> Arrays
+    public static IFilterMovie<Movie[], Boolean> filterByAvailability = (Movie[] movies, Boolean isAvailable) -> Arrays
             .stream(movies)
             .filter(m -> m.getIsAvailable() == isAvailable)
             .forEach(m -> System.out.println(m.getMovieDetails()));
@@ -40,7 +40,7 @@ public class Main {
         User user = new User(1, "Joe", "joe@joe.com");
 
         System.out.println("Add movie to watchlist:");
-        Watchlist addToWatchlist = user::addToWatchlist;
+        IWatchlist addToWatchlist = user::addToWatchlist;
         addToWatchlist.add(movies[0]);
         addToWatchlist.add(movies[7]);
         addToWatchlist.add(movies[5]);
@@ -51,7 +51,7 @@ public class Main {
         filterByTitle.filter(movies, "Inception");
 
         System.out.println("Rating a movie:");
-        Rate rateMovie = user::rateMovie;
+        IRate rateMovie = user::rateMovie;
         rateMovie.rate(movies[0], 7.9);
         filterByTitle.filter(movies, "Inception");
 
@@ -59,7 +59,7 @@ public class Main {
         filterByAvailability.filter(movies, false);
 
         System.out.println("Managing user subscription:");
-        Subscription subscribe = user::manageSubscription;
+        ISubscription subscribe = user::manageSubscription;
         subscribe.manageSubscription(true);
         System.out.println(user.toString());
 
